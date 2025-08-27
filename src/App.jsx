@@ -7,7 +7,7 @@ import RoomView from './RoomView';
 import ProfileSetup from './ProfileSetup';
 import LandingPage from './LandingPage';
 import LoginPage from './LoginPage';
-import SignupPage from './SignUpPage';
+import SignupPage from './SignupPage';
 import { Loader } from 'lucide-react';
 
 function App() {
