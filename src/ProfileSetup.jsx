@@ -24,7 +24,7 @@ export default function ProfileSetup({ session, onProfileSetup }) {
 
     try {
       const accessToken = session.access_token;
-      const response = await fetch('http://localhost:8080/api/users/me', {
+      const response = await fetch('https://storyweaverai-maqh.onrender.com/api/users/me', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`,

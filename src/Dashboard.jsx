@@ -22,7 +22,7 @@ export default function Dashboard({ session, profile }) {
     setError('');
     try {
       const accessToken = session.access_token;
-      const response = await fetch('http://localhost:8080/api/rooms', {
+      const response = await fetch('https://storyweaverai-maqh.onrender.com/api/rooms', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${accessToken}` },
       });
@@ -43,7 +43,7 @@ export default function Dashboard({ session, profile }) {
     setError('');
     try {
       const accessToken = session.access_token;
-      const response = await fetch(`http://localhost:8080/api/rooms/join/${joinCode.trim().toUpperCase()}`, {
+      const response = await fetch(`https://storyweaverai-maqh.onrender.com/api/rooms/join/${joinCode.trim().toUpperCase()}`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${accessToken}` },
       });

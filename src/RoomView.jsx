@@ -38,7 +38,7 @@ export default function RoomView({ session }) {
     const fetchData = async () => {
       try {
         const accessToken = session.access_token;
-        const roomJoinResponse = await fetch(`http://localhost:8080/api/rooms/join/${roomCode}`, {
+        const roomJoinResponse = await fetch(`https://storyweaverai-maqh.onrender.com/api/rooms/join/${roomCode}`, {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${accessToken}` }
         });
@@ -48,8 +48,8 @@ export default function RoomView({ session }) {
         const roomId = roomData.id;
 
         const [panelsResponse, membersResponse] = await Promise.all([
-          fetch(`http://localhost:8080/api/panels/room/${roomId}`, { headers: { 'Authorization': `Bearer ${accessToken}` } }),
-          fetch(`http://localhost:8080/api/rooms/${roomId}`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
+          fetch(`https://storyweaverai-maqh.onrender.com/api/panels/room/${roomId}`, { headers: { 'Authorization': `Bearer ${accessToken}` } }),
+          fetch(`https://storyweaverai-maqh.onrender.com/api/rooms/${roomId}`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
         ]);
 
         if (!panelsResponse.ok) throw new Error('Failed to fetch panels.');
@@ -60,7 +60,7 @@ export default function RoomView({ session }) {
         setPanels(panelsData);
         
         if (roomStateData.members && roomStateData.members.length > 0) {
-          const profilesResponse = await fetch('http://localhost:8080/api/users/profiles', {
+          const profilesResponse = await fetch('https://storyweaverai-maqh.onrender.com/api/users/profiles', {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
             body: JSON.stringify(roomStateData.members),
@@ -98,7 +98,7 @@ export default function RoomView({ session }) {
     setError('');
     try {
       const accessToken = session.access_token;
-      const response = await fetch(`http://localhost:8080/api/panels`, {
+      const response = await fetch(`https://storyweaverai-maqh.onrender.com/api/panels`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt, roomId: room.id }),
