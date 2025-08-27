@@ -7,5 +7,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "css.validate": false
+  "css.validate": false,
+  "postman.settings.dotenv-detection-notification-visibility": false
 }
