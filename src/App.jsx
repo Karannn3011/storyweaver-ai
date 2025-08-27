@@ -25,7 +25,7 @@ function App() {
 
     try {
       const accessToken = currentSession.access_token;
-      const response = await fetch('http://localhost:8080/api/users/me', {
+      const response = await fetch('https://storyweaverai-maqh.onrender.com/api/users/me', {
           headers: { 'Authorization': `Bearer ${accessToken}` }
       });
       if (response.ok) {
